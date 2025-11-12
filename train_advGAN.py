@@ -36,7 +36,7 @@ if __name__ == "__main__":
     
     train_dataloader, train_data_count = utils.load_mnist(
          batch_size=training_parameters["BATCH_SIZE"], shuffle=False)
-    #加载数据 16张一组 返回的是dataloader和图片的总数量
+   
     
     
     # Train the AdvGAN model
@@ -44,10 +44,10 @@ if __name__ == "__main__":
     
     advGAN = AdvGAN(device,V8,trainer, model_num_labels, image_nc,
                            BOX_MIN, BOX_MAX, training_parameters["LEARNING_RATE"],model_path=model_path,grad_path=grad_path)
-    #加载advgan模型
+    
     
     history = advGAN.train(train_dataloader, training_parameters["EPOCHS"])
-    #返回的一个大字典 有列表1.训练次数2.判别器的loss 3.假图判别器判断为真的loss 4.扰动保持比较小的值的loss 5.扰动让识别器识别不出来的loss
+   
 
     # Plots
     utils.plot_performance(history["counter"],
